@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingLedgerSystem.API", "AccountingLedgerSystem.API\AccountingLedgerSystem.API.csproj", "{9B178C94-246F-4C8C-884E-24794FCE2575}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountingLedgerSystem.Core", "AccountingLedgerSystem.Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountingLedgerSystem.Shared", "AccountingLedgerSystem.Shared", "{C11F846C-AF14-4509-BC46-A6C483160218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Application", "Core.Application\Core.Application.csproj", "{664F42EE-BB3A-41E5-A2E5-2613704D5A2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Domain", "Core.Domain\Core.Domain.csproj", "{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.DTOs", "Shared.DTOs\Shared.DTOs.csproj", "{CEBEA92C-C500-468A-9414-81168919A18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingLedgerSystem.Infrastructure", "AccountingLedgerSystem.Infrastructure\AccountingLedgerSystem.Infrastructure.csproj", "{B9BFDA71-E0DE-4CCE-840E-2276675BFF78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B178C94-246F-4C8C-884E-24794FCE2575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B178C94-246F-4C8C-884E-24794FCE2575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B178C94-246F-4C8C-884E-24794FCE2575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B178C94-246F-4C8C-884E-24794FCE2575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664F42EE-BB3A-41E5-A2E5-2613704D5A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664F42EE-BB3A-41E5-A2E5-2613704D5A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664F42EE-BB3A-41E5-A2E5-2613704D5A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664F42EE-BB3A-41E5-A2E5-2613704D5A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBEA92C-C500-468A-9414-81168919A18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBEA92C-C500-468A-9414-81168919A18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBEA92C-C500-468A-9414-81168919A18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBEA92C-C500-468A-9414-81168919A18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9BFDA71-E0DE-4CCE-840E-2276675BFF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9BFDA71-E0DE-4CCE-840E-2276675BFF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9BFDA71-E0DE-4CCE-840E-2276675BFF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9BFDA71-E0DE-4CCE-840E-2276675BFF78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{664F42EE-BB3A-41E5-A2E5-2613704D5A2D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{22C2E2CB-50B0-4BCB-A0E2-3ECDFAA6E4A5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{CEBEA92C-C500-468A-9414-81168919A18A} = {C11F846C-AF14-4509-BC46-A6C483160218}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6004024-835B-4773-B0C2-AB8F69EEF8F0}
+	EndGlobalSection
+EndGlobal
