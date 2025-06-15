@@ -1,9 +1,11 @@
 ﻿using AccountingLedgerSystem.Infrastructure.Persistence.Context;
 using AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Accounts;
 using Core.Application.Commands.Accounts;
+using Core.Application.Common.Behaviors;
 using Core.Application.Common.Mapper.Accounts;
 using Core.Application.Interfaces.Accounts;
 using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +23,10 @@ namespace AccountingLedgerSystem.Infrastructure.DependencyInjection
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddAutoMapper(typeof(AccountProfile)); 
             services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddMediatR(cfg =>
                 cfg.RegisterServicesFromAssemblyContaining<CreateAccountCommand>());
+            
         }
     }
 }
