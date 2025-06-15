@@ -20,21 +20,22 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Account
 
         public async Task<int> CreateAccount(Account account)
         {
-            var newIdParam = new SqlParameter
+
+            var newId = new SqlParameter("@NewId", SqlDbType.Int)
             {
-                ParameterName = "@NewId",
-                SqlDbType = SqlDbType.Int,
                 Direction = ParameterDirection.Output
             };
 
-            await _context.Database.ExecuteSqlRawAsync(
-             "EXEC SP_CreateAccount @Name = {0}, @Type = {1}, @NewId = {2} OUTPUT",
-             account.Name,
-             account.Type,
-             newIdParam
-         );
+            string sql = "EXEC SP_CreateAccount @Name = @Name, @Type = @Type, @NewId = @NewId OUTPUT";
 
-            return (int)newIdParam.Value;
+            await _context.Database.ExecuteSqlRawAsync(
+                sql,
+                new SqlParameter("@Name", account.Name),
+                new SqlParameter("@Type", account.Type),
+                newId
+            );
+
+            return (int)newId.Value;
         }
     }
 }
