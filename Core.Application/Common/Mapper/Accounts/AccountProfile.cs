@@ -15,6 +15,7 @@ namespace Core.Application.Common.Mapper.Accounts
         public AccountProfile()
         {
             CreateMap<AccountDto, Account>();
+            CreateMap<Account, AccountDto>();
         }
     }
 }

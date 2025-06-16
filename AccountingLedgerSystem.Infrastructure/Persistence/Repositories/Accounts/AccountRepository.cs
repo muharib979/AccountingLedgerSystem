@@ -37,5 +37,14 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Account
 
             return (int)newId.Value;
         }
+
+        public async Task<List<Account>> GetAllAccounts()
+        {
+            {
+                return await _context.Accounts
+                    .FromSqlRaw("EXEC SP_GetAllAccounts")
+                    .ToListAsync();
+            }
+        }
     }
 }
