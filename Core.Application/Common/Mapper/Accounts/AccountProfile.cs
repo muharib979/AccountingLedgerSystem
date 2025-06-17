@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Commands.Accounts;
 using Core.Domain.Entities.Account;
 using Shared.DTOs.Account;
 using System;
@@ -15,6 +16,7 @@ namespace Core.Application.Common.Mapper.Accounts
         public AccountProfile()
         {
             CreateMap<AccountDto, Account>();
+            CreateMap<CreateAccountCommand, Account>();
             CreateMap<Account, AccountDto>();
         }
     }

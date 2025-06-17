@@ -1,9 +1,11 @@
 ﻿using AccountingLedgerSystem.Infrastructure.Persistence.Context;
 using AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Accounts;
+using AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal;
 using Core.Application.Commands.Accounts;
 using Core.Application.Common.Behaviors;
 using Core.Application.Common.Mapper.Accounts;
 using Core.Application.Interfaces.Accounts;
+using Core.Application.Interfaces.Journal;
 using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +23,8 @@ namespace AccountingLedgerSystem.Infrastructure.DependencyInjection
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAccountRepository, AccountRepository>();
+
+            services.AddScoped<IJournalEntryRepository, JournalEntryRepository>();
             services.AddAutoMapper(typeof(AccountProfile)); 
             services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));

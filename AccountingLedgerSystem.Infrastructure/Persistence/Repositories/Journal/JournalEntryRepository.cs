@@ -1,0 +1,57 @@
+﻿using AccountingLedgerSystem.Infrastructure.Persistence.Context;
+using Core.Application.Interfaces.Journal;
+using Core.Domain.Entities.Journal;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Shared.DTOs.Account.Journal;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal
+{
+    public class JournalEntryRepository : IJournalEntryRepository
+    {
+
+        private readonly ApplicationDbContext _context;
+
+        public JournalEntryRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<bool> CreateJournalEntryAsync(JournalEntry journalEntry, List<JournalEntryLineDto> lines)
+        {
+            var resultParam = new SqlParameter
+            {
+                ParameterName = "@Result",
+                SqlDbType = SqlDbType.Int,
+                Direction = ParameterDirection.Output
+            };
+
+            var linesTable = new DataTable();
+            linesTable.Columns.Add("AccountId", typeof(int));
+            linesTable.Columns.Add("Debit", typeof(decimal));
+            linesTable.Columns.Add("Credit", typeof(decimal));
+
+            foreach (var line in lines)
+            {
+                linesTable.Rows.Add(line.AccountId, line.Debit, line.Credit);
+            }
+
+            var parameters = new[]
+            {
+        new SqlParameter("@Date", journalEntry.Date),
+        new SqlParameter("@Description", journalEntry.Description),
+        new SqlParameter("@Lines", linesTable) { SqlDbType = SqlDbType.Structured, TypeName = "dbo.JournalEntryLineType" },
+        resultParam
+    };
+
+            await _context.Database.ExecuteSqlRawAsync("EXEC SP_CreateJournalEntry @Date, @Description, @Lines, @Result OUTPUT", parameters);
+
+            return (int)resultParam.Value > 0;
+        }
+    }
+}

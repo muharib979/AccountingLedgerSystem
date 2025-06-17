@@ -4,6 +4,7 @@ using AccountingLedgerSystem.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountingLedgerSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250617050442_journalEntry")]
+    partial class journalEntry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,11 +106,9 @@ namespace AccountingLedgerSystem.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Credit")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Debit")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("JournalEntryId")
@@ -118,40 +119,6 @@ namespace AccountingLedgerSystem.Infrastructure.Migrations
                     b.HasIndex("JournalEntryId");
 
                     b.ToTable("JournalEntryLine");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AccountId = 1,
-                            Credit = 0m,
-                            Debit = 1000m,
-                            JournalEntryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AccountId = 2,
-                            Credit = 1000m,
-                            Debit = 0m,
-                            JournalEntryId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AccountId = 1,
-                            Credit = 0m,
-                            Debit = 500m,
-                            JournalEntryId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AccountId = 3,
-                            Credit = 500m,
-                            Debit = 0m,
-                            JournalEntryId = 2
-                        });
                 });
 
             modelBuilder.Entity("Core.Domain.Entities.Journal.JournalEntryLine", b =>
