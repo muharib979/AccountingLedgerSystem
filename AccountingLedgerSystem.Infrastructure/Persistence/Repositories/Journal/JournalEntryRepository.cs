@@ -53,5 +53,48 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal
 
             return (int)resultParam.Value > 0;
         }
+
+        public async Task<List<JournalEntry>> GetAllJournalEntriesAsync()
+        {
+
+            using var conn = _context.Database.GetDbConnection();
+            await conn.OpenAsync();
+
+            using var command = conn.CreateCommand();
+            command.CommandText = "SP_GetAllJournalEntries";
+            command.CommandType = CommandType.StoredProcedure;
+
+            var entries = new List<JournalEntry>();
+
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                var entryId = reader.GetInt32(reader.GetOrdinal("JournalEntryId"));
+                var existing = entries.FirstOrDefault(e => e.Id == entryId);
+
+                if (existing == null)
+                {
+                    existing = new JournalEntry
+                    {
+                        Id = entryId,
+                        Date = reader.GetDateTime(reader.GetOrdinal("Date")),
+                        Description = reader.GetString(reader.GetOrdinal("Description")),
+                        Lines = new List<JournalEntryLine>()
+                    };
+                    entries.Add(existing);
+                }
+
+                existing.Lines.Add(new JournalEntryLine
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("LineId")),
+                    AccountId = reader.GetInt32(reader.GetOrdinal("AccountId")),
+                    Debit = reader.GetDecimal(reader.GetOrdinal("Debit")),
+                    Credit = reader.GetDecimal(reader.GetOrdinal("Credit"))
+                });
+            }
+
+            return entries;
+        }
     }
 }

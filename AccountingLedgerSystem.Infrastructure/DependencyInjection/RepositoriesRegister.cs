@@ -4,6 +4,7 @@ using AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal;
 using Core.Application.Commands.Accounts;
 using Core.Application.Common.Behaviors;
 using Core.Application.Common.Mapper.Accounts;
+using Core.Application.Common.Mapper.Accounts.Journal;
 using Core.Application.Interfaces.Accounts;
 using Core.Application.Interfaces.Journal;
 using FluentValidation;
@@ -25,7 +26,7 @@ namespace AccountingLedgerSystem.Infrastructure.DependencyInjection
             services.AddScoped<IAccountRepository, AccountRepository>();
 
             services.AddScoped<IJournalEntryRepository, JournalEntryRepository>();
-            services.AddAutoMapper(typeof(AccountProfile)); 
+            services.AddAutoMapper(typeof(AccountProfile), typeof(JournalEntryProfile));
             services.AddValidatorsFromAssemblyContaining<CreateAccountValidator>();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddMediatR(cfg =>

@@ -15,6 +15,10 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
             : base(options) { }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<JournalEntry> JournalEntries { get; set; }
+        public DbSet<JournalEntryLine> JournalEntryLines { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +31,7 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
             modelBuilder.Entity<JournalEntryLine>()
                 .Property(j => j.Credit)
                 .HasPrecision(18, 2);
+
 
             modelBuilder.Entity<Account>().HasData(
                 new Account { Id = 1, Name = "Cash", Type = "Asset" },

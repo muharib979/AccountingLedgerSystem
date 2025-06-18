@@ -14,8 +14,14 @@ namespace Core.Application.Common.Mapper.Accounts.Journal
     {
         public JournalEntryProfile()
         {
-            CreateMap<CreateJournalEntryCommand, JournalEntry>();
-            CreateMap<JournalEntryLineDto, JournalEntryLine>();
+            //CreateMap<JournalEntry, CreateJournalEntryDto>();
+            //CreateMap<JournalEntryLine, JournalEntryLineDto>();
+
+            //CreateMap<CreateJournalEntryDto, JournalEntry>();
+            //CreateMap<JournalEntryLineDto, JournalEntryLine>();
+
+            CreateMap<JournalEntry, CreateJournalEntryDto>().ReverseMap();
+            CreateMap<JournalEntryLine, JournalEntryLineDto>().ReverseMap();
         }
     }
 }

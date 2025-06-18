@@ -1,5 +1,6 @@
 ﻿using AccountingLedgerSystem.API.Controllers.Common;
 using Core.Application.Commands.Journal;
+using Core.Application.Queries.Journal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,5 +16,12 @@ namespace AccountingLedgerSystem.API.Controllers.Journal
         {
             return Ok(await _mediatr.Send(command));
         }
+        [HttpGet("get-all-journalentries")]
+        public async Task<IActionResult> GetAllJournalEntries()
+        {
+            return Ok(await _mediatr.Send(new GetAllJournalEntriesQuery()));
+        }
+
+
     }
 }
