@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Commands.Journal;
 using Core.Domain.Entities.Journal;
-using Shared.DTOs.Account.Journal;
+using Shared.DTOs.Journal;
 using System;
 using System.Collections.Generic;
 using System.Linq;

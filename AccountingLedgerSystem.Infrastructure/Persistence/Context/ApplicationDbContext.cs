@@ -1,5 +1,6 @@
 ﻿using Core.Domain.Entities.Account;
 using Core.Domain.Entities.Journal;
+using Core.Domain.Entities.TrialBalance;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
         public DbSet<Account> Accounts { get; set; }
         public DbSet<JournalEntry> JournalEntries { get; set; }
         public DbSet<JournalEntryLine> JournalEntryLines { get; set; }
+        public DbSet<TrialBalance> TrialBalances { get; set; }
+
 
 
 
@@ -31,6 +34,9 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
             modelBuilder.Entity<JournalEntryLine>()
                 .Property(j => j.Credit)
                 .HasPrecision(18, 2);
+
+            modelBuilder.Entity<TrialBalance>().HasNoKey(); 
+            modelBuilder.Entity<TrialBalance>().ToView(null);
 
 
             modelBuilder.Entity<Account>().HasData(

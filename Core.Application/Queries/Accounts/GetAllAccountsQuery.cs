@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Application.Queries
+namespace Core.Application.Queries.Accounts
 {
     public class GetAllAccountsQuery : IRequest<List<AccountDto>>
     {

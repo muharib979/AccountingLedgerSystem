@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DTOs.Account.Journal
+namespace Shared.DTOs.Journal
 {
     public class JournalEntryLineDto
     {

@@ -2,7 +2,7 @@
 using Core.Application.Interfaces.Journal;
 using Core.Domain.Entities.Journal;
 using MediatR;
-using Shared.DTOs.Account.Journal;
+using Shared.DTOs.Journal;
 using System;
 using System.Collections.Generic;
 using System.Linq;

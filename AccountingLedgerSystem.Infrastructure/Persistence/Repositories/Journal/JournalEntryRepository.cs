@@ -3,7 +3,7 @@ using Core.Application.Interfaces.Journal;
 using Core.Domain.Entities.Journal;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Shared.DTOs.Account.Journal;
+using Shared.DTOs.Journal;
 using System;
 using System.Collections.Generic;
 using System.Data;
