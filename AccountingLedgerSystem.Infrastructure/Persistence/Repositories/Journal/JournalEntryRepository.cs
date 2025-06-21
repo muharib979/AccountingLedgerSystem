@@ -89,6 +89,7 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("LineId")),
                     AccountId = reader.GetInt32(reader.GetOrdinal("AccountId")),
+                    AccountName = reader.GetString(reader.GetOrdinal("AccountName")),
                     Debit = reader.GetDecimal(reader.GetOrdinal("Debit")),
                     Credit = reader.GetDecimal(reader.GetOrdinal("Credit"))
                 });
