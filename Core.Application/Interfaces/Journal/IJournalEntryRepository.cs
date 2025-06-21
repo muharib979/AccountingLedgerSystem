@@ -11,7 +11,7 @@ namespace Core.Application.Interfaces.Journal
 {
     public interface IJournalEntryRepository
     {
-        Task<bool> CreateJournalEntryAsync(JournalEntry journalEntry, List<JournalEntryLineDto> lines);
+        Task<bool> CreateJournalEntryAsync(JournalEntry journalEntry, List<CreateJournalEntryLineDto> lines);
         Task<List<JournalEntry>> GetAllJournalEntriesAsync();
     }
 }

@@ -12,8 +12,7 @@ namespace Core.Domain.Entities.Journal
         public int Id { get; set; }
         public int JournalEntryId { get; set; }
         public int AccountId { get; set; }
-        [NotMapped]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; }
         public decimal Debit { get; set; }
         public decimal Credit { get; set; }
     }

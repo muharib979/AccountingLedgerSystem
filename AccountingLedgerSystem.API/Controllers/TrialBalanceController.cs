@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AccountingLedgerSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class TrialBalanceController : BaseApiController
     {

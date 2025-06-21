@@ -21,7 +21,9 @@ namespace Core.Application.Common.Mapper.Accounts.Journal
             //CreateMap<JournalEntryLineDto, JournalEntryLine>();
 
             CreateMap<JournalEntry, CreateJournalEntryDto>().ReverseMap();
-            CreateMap<JournalEntryLine, JournalEntryLineDto>().ReverseMap();
+            CreateMap<JournalEntryLine, CreateJournalEntryLineDto>().ReverseMap();
+            CreateMap<JournalEntry, JournalEntryDto>();
+            CreateMap<JournalEntryLine, JournalEntryLineDto>();
         }
     }
 }

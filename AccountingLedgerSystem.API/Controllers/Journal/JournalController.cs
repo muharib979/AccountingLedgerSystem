@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AccountingLedgerSystem.API.Controllers.Journal
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class JournalController : BaseApiController
     {

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Core.Application.Queries.Journal
 {
-    public class GetAllJournalEntriesQuery : IRequest<List<CreateJournalEntryDto>>
+    public class GetAllJournalEntriesQuery : IRequest<List<JournalEntryDto>>
     {
-        public class Handler : IRequestHandler<GetAllJournalEntriesQuery, List<CreateJournalEntryDto>>
+        public class Handler : IRequestHandler<GetAllJournalEntriesQuery, List<JournalEntryDto>>
         {
             private readonly IJournalEntryRepository _repository;
             private readonly IMapper _mapper;
@@ -23,10 +23,10 @@ namespace Core.Application.Queries.Journal
                 _mapper = mapper;
             }
 
-            public async Task<List<CreateJournalEntryDto>> Handle(GetAllJournalEntriesQuery request, CancellationToken cancellationToken)
+            public async Task<List<JournalEntryDto>> Handle(GetAllJournalEntriesQuery request, CancellationToken cancellationToken)
             {
                 var entries = await _repository.GetAllJournalEntriesAsync();
-                return _mapper.Map<List<CreateJournalEntryDto>>(entries);
+                return _mapper.Map<List<JournalEntryDto>>(entries);
             }
         }
     }

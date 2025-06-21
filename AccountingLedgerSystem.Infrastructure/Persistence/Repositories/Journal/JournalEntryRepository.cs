@@ -22,7 +22,7 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal
         {
             _context = context;
         }
-        public async Task<bool> CreateJournalEntryAsync(JournalEntry journalEntry, List<JournalEntryLineDto> lines)
+        public async Task<bool> CreateJournalEntryAsync(JournalEntry journalEntry, List<CreateJournalEntryLineDto> lines)
         {
             var resultParam = new SqlParameter
             {
@@ -89,7 +89,8 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Repositories.Journal
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("LineId")),
                     AccountId = reader.GetInt32(reader.GetOrdinal("AccountId")),
-                    AccountName = reader.GetString(reader.GetOrdinal("AccountName")),
+                    AccountName = reader.IsDBNull(reader.GetOrdinal("AccountName")) ? "" :
+                          reader.GetString(reader.GetOrdinal("AccountName")),
                     Debit = reader.GetDecimal(reader.GetOrdinal("Debit")),
                     Credit = reader.GetDecimal(reader.GetOrdinal("Credit"))
                 });
