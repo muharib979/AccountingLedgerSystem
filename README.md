@@ -14,7 +14,7 @@ View Journal Entries
 
 View Trial Balance
 
-Stored Procedure based data access
+Stored Procedure 
 
 AutoMapper, MediatR, FluentValidation
 
