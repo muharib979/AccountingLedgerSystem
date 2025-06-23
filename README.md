@@ -83,5 +83,5 @@ Run the backend:
 
 dotnet run
 
- [View on GitHub](https://github.com/muharib979/AccountingLedgerSystem/blob/main/AccountingLedgerSystem.Infrastructure/Persistence/Context/Database_Scripts_StoreProcedure/AccountingLedgeerSystem.sql) 
+ [View on GitHub](https://github.com/muharib979/AccountingLedgerSystem/blob/main/AccountingLedgerSystem.Infrastructure/Persistence/Context/Database_Scripts_StoreProcedure/AccountingLedgerSystem.sql) 
 
