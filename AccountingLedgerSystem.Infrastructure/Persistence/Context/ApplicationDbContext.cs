@@ -38,6 +38,13 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
             modelBuilder.Entity<TrialBalance>().HasNoKey(); 
             modelBuilder.Entity<TrialBalance>().ToView(null);
 
+            modelBuilder.Entity<TrialBalance>(entity =>
+            {
+                entity.Property(e => e.TotalDebit).HasPrecision(18, 2);
+                entity.Property(e => e.TotalCredit).HasPrecision(18, 2);
+                entity.Property(e => e.NetBalance).HasPrecision(18, 2);
+            });
+
 
             modelBuilder.Entity<Account>().HasData(
                 new Account { Id = 1, Name = "Cash", Type = "Asset" },
@@ -64,7 +71,7 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
     {
         Id = 1,
         JournalEntryId = 1,
-        AccountId = 1,         // Cash (Asset)
+        AccountId = 1,         
         Debit = 1000,
         Credit = 0
     },
@@ -72,17 +79,17 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
     {
         Id = 2,
         JournalEntryId = 1,
-        AccountId = 2,         // Capital (Equity)
+        AccountId = 2,        
         Debit = 0,
         Credit = 1000
     },
 
-    // Journal Entry 2
+ 
     new JournalEntryLine
     {
         Id = 3,
         JournalEntryId = 2,
-        AccountId = 1,         // Cash (Asset)
+        AccountId = 1,       
         Debit = 500,
         Credit = 0
     },
@@ -90,7 +97,7 @@ namespace AccountingLedgerSystem.Infrastructure.Persistence.Context
     {
         Id = 4,
         JournalEntryId = 2,
-        AccountId = 3,         // Sales Revenue (Income)
+        AccountId = 3,         
         Debit = 0,
         Credit = 500
     }
