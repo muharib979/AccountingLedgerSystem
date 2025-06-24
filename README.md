@@ -1,8 +1,43 @@
-💼 A Modular Accounting Ledger System
+### 💼 A Modular Accounting Ledger System 
+### Project Summary
 
-A Modular Accounting System built with ASP.NET Core (Clean Architecture, CQRS, EF Core, Stored Procedure) and React.js (Vite + TailwindCSS).
+The Accounting Ledger System is a full-stack web application designed to manage:
 
-🚀 Features
+### Accounts
+
+### Journal Entries
+
+### Trial Balance reports
+
+It ensures a structured, clean, and maintainable architecture using the following:
+
+### Backend (ASP.NET Core 8)
+
+Clean Architecture + CQRS + MediatR
+
+EF Core with Stored Procedures
+
+AutoMapper + FluentValidation
+
+SQL Server database
+
+ Frontend (React.js)
+
+Vite + Axios + React Router
+
+Tailwind CSS for modern UI
+
+Functional components & Hooks
+
+### 🔗  GitHub Repositories
+
+Backend (.NET Core 8):
+👉 https://github.com/muharib979/AccountingLedgerSystem
+
+Frontend (React.js + Tailwind):
+👉 https://github.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind
+
+###  Features
 
 Create Accounts
 
@@ -14,38 +49,59 @@ View Journal Entries
 
 View Trial Balance
 
-Stored Procedure 
 
-AutoMapper, MediatR, FluentValidation
+### 📷 Screenshots
 
-📷 Screenshots
+### Home Page
 
-### 🏠 Home Page
-
-![Home Page](screenshots/Home.png)
+![Home Page](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/Home.png)
 
 
-### 📥 Create Account
-![Create Account](screenshots/create-account.png)
-![Create List](screenshots/account-list.png)
+### Create Account
+![Create Account](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/create-account.png)
+### Accounts List
+![Accounts List](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/account-list.png)
 
+### Journal Entries
+![Journal Entries](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/journal-entries.png)
 
 ### 📄 Journal Entries
-![Journal Entries](screenshots/journal-entries.png)
-![Journal Entry List](screenshots/journalEntry-list.png)
-
-### 📊 Trial Balance
-
-![Trial Balance](screenshots/trial-balance.png)
+![Journal Entry List](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/journalEntry-list.png)
 
 
-⚒️ Tech Stack
+### Trial Balance
+![Trial Balance](https://raw.githubusercontent.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind/main/AccountingLedgerSystem/screenshots/trial-balance.png)
 
-Backend: ASP.NET Core 8, EF Core, MediatR, FluentValidation
 
-DB: SQL Server with Stored Procedures
 
-🧲 Sample Test Entries
+### Technologies Used
+
+Layer
+
+Stack
+
+Backend
+
+ASP.NET Core 9, EF Core, SQL Server
+
+Architecture
+
+Clean Architecture, CQRS, MediatR
+
+Frontend
+
+React.js, Vite, Tailwind CSS, Axios
+
+Validation
+
+FluentValidation
+
+Mapping
+
+AutoMapper
+
+
+###  Sample Test Entries
 
 1. Account
 
@@ -65,11 +121,11 @@ DB: SQL Server with Stored Procedures
   ]
 }
 
-▶️ Run Instructions
+###  Run Instructions
 
-🧩 Backend (.NET Core)
+###   Backend (.NET Core)
 
-Clone the repo:
+###  Clone the repo:
 
 git clone https://github.com/muharib979/AccountingLedgerSystem.git
 
@@ -83,5 +139,26 @@ Run the backend:
 
 dotnet run
 
- [View on GitHub](https://github.com/muharib979/AccountingLedgerSystem/blob/master/AccountingLedgerSystem.Infrastructure/Persistence/Context/Database_Scripts_StoreProcedure/AccountingLedgerSystem.sql) 
+### Database Scripts
+[View on GitHub](https://github.com/muharib979/AccountingLedgerSystem/blob/master/AccountingLedgerSystem.Infrastructure/Persistence/Context/Database_Scripts_StoreProcedure/AccountingLedgerSystem.sql) 
 
+###   Frontend (React.js)
+
+Clone the repo:
+
+git clone https://github.com/muharib979/AccountingLedgerSystem-With-React.js-Tailwind.git
+
+
+Navigate to frontend:
+
+cd AccountingLedgerSystem
+
+Install packages:
+
+npm install
+
+Start the Project:
+
+npm run dev
+
+Visit: http://localhost:5173/
